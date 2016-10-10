@@ -1,14 +1,14 @@
 import java.util.*;
 
-public class Excecoes {
+public class Excecoes{
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		int a,b,c;
+		int a,b,c = 0;
 		double d;
 		double e[];
 		e = new double[10];
-		//C√≥digo de leitura de dados
+		//CÛdigo de leitura de dados
 		System.out.println("Digite um valor inteiro para a:");
 		a = in.nextInt();
 		System.out.println("Digite um valor inteiro para b:");
@@ -17,7 +17,7 @@ public class Excecoes {
 			c = a / b;
 		}
 		catch(ArithmeticException divPorZero){
-			System.out.println("Divis√£o por zero. Corrija os valores de entrada e tente novamente.");
+			System.out.println("Divis„o por zero. Corrija os valores de entrada e tente novamente.");
 		}
 		
 		try{
@@ -25,8 +25,21 @@ public class Excecoes {
 		System.out.println(d);
 		}
 		catch(ArrayIndexOutOfBoundsException posNula){
-			System.out.println("Posi√ß√£o do array √© nula. Verifique e tente novamente.");
+			System.out.println("PosiÁ„o do array È nula. Verifique e tente novamente.");
 		}
 		
+		ContaCorrente c1 = new ContaCorrente(c);
+		
+		try{
+			c1.getSaldo();
+			c1.retirada(5000f);
+		}
+		catch(InvalidBalanceException i){
+			
+		}
+		
+		finally{
+			in.close();
+		}
 	}
 }

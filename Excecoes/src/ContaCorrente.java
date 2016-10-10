@@ -1,5 +1,4 @@
-//2) Considere o código inicial a seguir:
-public class ContaCorrente{
+public class ContaCorrente {
 
     private double saldo;
 
@@ -11,15 +10,12 @@ public class ContaCorrente{
         saldo += valor;
     }
 
-    public void retirada(double valor){
+    public void retirada(double valor) throws InvalidBalanceException{
         saldo -= valor;
+        if(saldo<0) throw new InvalidBalanceException();
     }
 
-    public double getSaldo(){ return(saldo);   }
+    public double getSaldo(){
+    	return(saldo);
+    }
 }
-
-//a) Considerando que o saldo nunca pode ser negativo, crie uma nova classe de exceção 'InvalidBalanceException'.
-
-//b) Ajuste o código original para que esta nova exceção seja lançada nos casos de exceção
-
-//c) Implemente uma outra classe que instancia a ContaCorrente e trata a exceção criada.
